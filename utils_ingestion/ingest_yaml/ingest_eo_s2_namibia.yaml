@@ -1,0 +1,172 @@
+source_type: s2_namibia
+output_type: s2_l2a_namibia
+
+description: Sentinel 2 ARD L2A scenes, EPSG:32733
+
+location: '/datacube/ingested_data/'
+file_path_template: 'sentinel2/s2_l2a_namibia/{tile_index[0]}/{tile_index[1]}/{start_time}.nc'
+global_attributes:
+  title: Namibia Data Cube
+  summary: Sentinel 2 MSI ARD
+  source: Open Access Hub
+  institution: JMU Wuerzburg
+  instrument: MSI
+  cdm_data_type: Grid
+  keywords: Namibia,ESA,Sentinel,MSI
+  platform: Sentinel_2
+  processing_level: L2A
+  product_version: '1.0.0'
+  product_suite: Sentinel 2 MSI
+  project: Namibian Data Cube
+  coverage_content_type: physicalMeasurement
+  references: https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/product-types/level-2a
+  license: https://creativecommons.org/licenses/by-sa/3.0/igo/
+  naming_authority: ESA
+  acknowledgment: Sentinel 2 data are freely distributed by the European Space Agency (ESA)
+
+
+storage:
+  driver: NetCDF CF
+  
+  crs: EPSG:32733
+  tile_size:
+          x: 50000.0
+          y: 50000.0
+  origin:
+          x: 0.0
+          y: 0.0
+  resolution:
+          x: 10
+          y: -10
+  chunking:
+      x: 200
+      y: 200
+      time: 1
+  dimension_order: ['time', 'y', 'x']
+
+fuse_data: copy
+
+measurements:
+    - name: coastal_aerosol
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B01_60m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 442.7 nm (S2A), 442.3 nm (S2B), bandwidth: 21 nm (S2A), 21 nm (S2B); coastal aerosol"
+          alias: "band_1"
+    - name: blue
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B02_10m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 492.4 nm (S2A), 492.1 (S2B), bandwidth: 66 nm (S2A), 66 nm (S2B); blue"
+          alias: "band_2"
+    - name: green
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B03_10m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 559.8 nm (S2A), 559.0 nm (S2B), bandwidth: 36 nm (S2A), 36 nm (S2B); green"
+          alias: "band_3"
+    - name: red
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B04_10m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 664.6 nm (S2A), 665.0 nm (S2B), bandwidth: 31 nm (S2A), 31 nm (S2B); red"
+          alias: "band_4"
+    - name: red_edge1
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B05_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 704.1 nm (S2A), 703.8 nm (S2B), bandwidth: 15 nm (S2A), 16 nm (S2B); vegetation red edge"
+          alias: "band_5"
+    - name: red_edge2
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B06_20m'
+      zlib: True
+    - name: red_edge2
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B06_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 740.5 nm (S2A), 739.1 nm (S2B), bandwidth: 15 nm (S2A), 15 nm (S2B); vegetation red edge"
+          alias: "band_6"
+    - name: red_edge3
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B07_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 782.8 nm (S2A), 779.7 nm (S2B), bandwidth: 20 nm (S2A), 20 nm (S2B); vegetation red edge"
+          alias: "band_7"
+    - name: nir
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B08_10m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 832.8 nm (S2A), 832.9 nm (S2B), bandwidth: 106 nm (S2A), 106 nm (S2B); nir"
+          alias: "band_8"
+    - name: narrow_nir
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B8A_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 864.7 nm (S2A), 864.0 nm (S2B), bandwidth: 21 nm (S2A), 22 nm (S2B); narrow nir"
+          alias: "band_8a"
+    - name: water_vapour
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B09_60m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 945.1 nm (S2A), 943.2 nm (S2B), bandwidth: 20 nm (S2A), 21 nm (S2B); water vapour"
+          alias: "band_9"
+    - name: swir1
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B11_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 1613.7 nm (S2A), 1610.4 nm (S2B), bandwidth: 91 nm (S2A), 94 nm (S2B); swir"
+          alias: "band_11"
+    - name: swir2
+      dtype: int16
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'B12_20m'
+      zlib: True
+      attrs:
+          long_name: "Central wavelenght: 2202.4 nm (S2A), 2185.7 nm (S2B), bandwidth: 175 nm (S2A), 185 nm (S2B); swir"
+          alias: "band_12"
+    - name: scl
+      dtype: uint8
+      nodata: 0
+      resampling_method: nearest
+      src_varname: 'SCL_20m'
+      zlib: True
+      attrs:
+          long_name: "Scene classification"
+          alias: "band_scl"
