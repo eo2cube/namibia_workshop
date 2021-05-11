@@ -30,8 +30,8 @@ storage:
   
   crs: EPSG:32733
   tile_size:
-          x: 50000.0
-          y: 50000.0
+          x: 56000.0
+          y: 56000.0
   origin:
           x: 0.0
           y: 0.0
