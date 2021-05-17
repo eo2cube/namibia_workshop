@@ -1,0 +1,11 @@
+name: Namibia_2021
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - geopandas
+  - geoplot
+  - pysal
+  - folium
+  - scikit-learn
+  - rasterio
