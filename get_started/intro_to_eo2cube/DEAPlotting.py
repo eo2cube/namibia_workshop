@@ -24,7 +24,7 @@ import pandas as pd
 from skimage import exposure
 import matplotlib
 # matplotlib.use('agg')
-from descartes import PolygonPatch
+#from descartes import PolygonPatch
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.patheffects as PathEffects
